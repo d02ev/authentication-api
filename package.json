@@ -1,0 +1,49 @@
+{
+  "name": "authentication-api",
+  "version": "1.0.0",
+  "description": "a simple authentication api",
+  "keywords": [
+    "authentication",
+    "api",
+    "express",
+    "jwt",
+    "postgres",
+    "sql",
+    "security"
+  ],
+  "homepage": "https://github.com/d02ev/authentication-api#readme",
+  "bugs": {
+    "url": "https://github.com/d02ev/authentication-api/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/d02ev/authentication-api.git"
+  },
+  "license": "MIT",
+  "author": "Vikramaditya Pratap Singh (d02ev)",
+  "type": "commonjs",
+  "main": "src/server.js",
+  "scripts": {
+    "build": "rimraf dist && babel src -d dist",
+    "start:dev": "nodemon"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.27.2",
+    "@babel/core": "^7.27.1",
+    "@babel/node": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.5.0"
+  }
+}
