@@ -1,4 +1,4 @@
-import { findByUsername, save } from "../repository/user.repository";
+import { findByUsername, save, addRefreshToken } from "../repository/user.repository";
 import { comparePassword, generatePasswordHash } from "../util/password.service";
 import { generateAccessToken, generateRefreshToken } from "../util/token.service";
 import BadRequestError from "../error/bad-request.error";
@@ -50,6 +50,13 @@ export const loginUser = async (loginUserDto) => {
   }
   const accessToken = generateAccessToken(accessTokenPayload);
   const refreshToken = generateRefreshToken(refreshTokenPayload);
+
+  const saveRefreshToken = await addRefreshToken(userExists.id, refreshToken);
+  if (!saveRefreshToken) {
+    throw new InternalServerError(
+      "An internal error occurred while logging in the user. Please try again later."
+    );
+  }
 
   return new LoginUserResponse(accessToken, refreshToken);
 }

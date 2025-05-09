@@ -18,3 +18,12 @@ export const findByUsername = async (username) => {
     }
   });
 }
+
+export const addRefreshToken = async (id, token) => {
+  return await prismaClient.user.update({
+    where: { id },
+    data: {
+      refreshToken: token
+    }
+  });
+}
